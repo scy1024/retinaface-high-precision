@@ -1,30 +1,67 @@
 # RetinaFace
 
-<div align="center">
-
-[![PyPI Downloads](https://static.pepy.tech/personalized-badge/retina-face?period=total&units=international_system&left_color=grey&right_color=blue&left_text=pypi%20downloads)](https://pepy.tech/project/retina-face)
-[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/retina-face?color=green&label=conda%20downloads)](https://anaconda.org/conda-forge/retina-face)
-[![Stars](https://img.shields.io/github/stars/serengil/retinaface?color=yellow)](https://github.com/serengil/retinaface)
-[![License](http://img.shields.io/:license-MIT-green.svg?style=flat)](https://github.com/serengil/retinaface/blob/master/LICENSE)
-[![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dserengil%26type%3Dpatrons&style=flat)](https://www.patreon.com/serengil?repo=retinaface)
-[![GitHub Sponsors](https://img.shields.io/github/sponsors/serengil?logo=GitHub&color=lightgray)](https://github.com/sponsors/serengil)
-
-[![DOI](http://img.shields.io/:DOI-10.1109/ASYU50717.2020.9259802-blue.svg?style=flat)](https://doi.org/10.1109/ASYU50717.2020.9259802)
-[![DOI](http://img.shields.io/:DOI-10.1109/ICEET53442.2021.9659697-blue.svg?style=flat)](https://doi.org/10.1109/ICEET53442.2021.9659697)
-
-[![Blog](https://img.shields.io/:blog-sefiks.com-blue.svg?style=flat&logo=wordpress)](https://sefiks.com)
-[![YouTube](https://img.shields.io/:youtube-@sefiks-red.svg?style=flat&logo=youtube)](https://www.youtube.com/@sefiks?sub_confirmation=1)
-[![Twitter](https://img.shields.io/:follow-@serengil-blue.svg?style=flat&logo=twitter)](https://twitter.com/intent/user?screen_name=serengil)
-
-</div>
+<style>
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr); /* 6 列 */
+        grid-gap: 10px;
+    }
+    .gallery img {
+        width: 100%;
+        height: auto;
+    }
+    .gallery-caption {
+        text-align: center;
+        margin-top: 5px;
+    }
+</style>
 
 RetinaFace is a deep learning based cutting-edge facial detector for Python coming with facial landmarks. Its detection performance is amazing even in the crowd as shown in the following illustration.
 
 RetinaFace is the face detection module of [insightface](https://github.com/deepinsight/insightface) project. The original implementation is mainly based on mxnet. Then, its tensorflow based [re-implementation](https://github.com/StanislasBertrand/RetinaFace-tf2) is published by [Stanislas Bertrand](https://github.com/StanislasBertrand). So, this repo is heavily inspired from the study of Stanislas Bertrand. Its source code is simplified and it is transformed to pip compatible but the main structure of the reference model and its pre-trained weights are same.
 
-<p align="center"><img src="https://raw.githubusercontent.com/serengil/retinaface/master/tests/outputs/img3.jpg" width="90%" height="90%">
-<br><em>The Yellow Angels - Fenerbahce Women's Volleyball Team</em>
+<p align="center"><img src="./tests/outputs/result.png" width="90%" height="90%">
+<br><em>Second grade Chinese class</em>
 </p>
+
+<body>
+    <div class="gallery">
+        <!-- 添加 28 张图片 -->
+        <img src="./tests/outputs/faces/test/face_0.png" alt="图片1">
+        <img src="./tests/outputs/faces/test/face_1.png" alt="图片2">
+        <img src="./tests/outputs/faces/test/face_2.png" alt="图片3">
+        <img src="./tests/outputs/faces/test/face_3.png" alt="图片4">
+        <img src="./tests/outputs/faces/test/face_4.png" alt="图片5">
+        <img src="./tests/outputs/faces/test/face_5.png" alt="图片6">
+        <img src="./tests/outputs/faces/test/face_6.png" alt="图片7">
+        <img src="./tests/outputs/faces/test/face_7.png" alt="图片8">
+        <img src="./tests/outputs/faces/test/face_8.png" alt="图片9">
+        <img src="./tests/outputs/faces/test/face_9.png" alt="图片10">
+        <img src="./tests/outputs/faces/test/face_10.png" alt="图片11">
+        <img src="./tests/outputs/faces/test/face_11.png" alt="图片12">
+        <img src="./tests/outputs/faces/test/face_12.png" alt="图片13">
+        <img src="./tests/outputs/faces/test/face_13.png" alt="图片14">
+        <img src="./tests/outputs/faces/test/face_14.png" alt="图片15">
+        <img src="./tests/outputs/faces/test/face_15.png" alt="图片16">
+        <img src="./tests/outputs/faces/test/face_16.png" alt="图片17">
+        <img src="./tests/outputs/faces/test/face_17.png" alt="图片18">
+        <img src="./tests/outputs/faces/test/face_18.png" alt="图片19">
+        <img src="./tests/outputs/faces/test/face_19.png" alt="图片20">
+        <img src="./tests/outputs/faces/test/face_20.png" alt="图片21">
+        <img src="./tests/outputs/faces/test/face_21.png" alt="图片22">
+        <img src="./tests/outputs/faces/test/face_22.png" alt="图片23">
+        <img src="./tests/outputs/faces/test/face_23.png" alt="图片24">
+        <img src="./tests/outputs/faces/test/face_24.png" alt="图片25">
+        <img src="./tests/outputs/faces/test/face_25.png" alt="图片26">
+        <img src="./tests/outputs/faces/test/face_26.png" alt="图片27">
+        <img src="./tests/outputs/faces/test/face_27.png" alt="图片28">
+        <img src="./tests/outputs/faces/test/face_28.png" alt="图片28">
+    </div>
+    <p class="gallery-caption"><em>Pull up pictures of faces</em></p>
+</body>
+
+
+
 
 ## Installation [![PyPI](https://img.shields.io/pypi/v/retina-face.svg)](https://pypi.org/project/retina-face/) [![Conda](https://img.shields.io/conda/vn/conda-forge/retina-face.svg)](https://anaconda.org/conda-forge/retina-face)
 
@@ -102,15 +139,7 @@ print(obj["verified"])
 
 Notice that ArcFace got 99.40% accuracy on [LFW data set](https://sefiks.com/2020/08/27/labeled-faces-in-the-wild-for-face-recognition/) whereas human beings just have 97.53% confidence.
 
-## Support
 
-There are many ways to support a project. Starring⭐️ the repo is just one 🙏
-
-You can also support this work on [Patreon](https://www.patreon.com/serengil?repo=retinaface)
-
-<a href="https://www.patreon.com/serengil?repo=retinaface">
-<img src="https://raw.githubusercontent.com/serengil/retinaface/master/icons/patreon.png" width="30%" height="30%">
-</a>
 
 ## Acknowledgements
 
