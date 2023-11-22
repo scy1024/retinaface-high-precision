@@ -16,6 +16,23 @@
     }
 </style>
 
+
+  <style>
+      .gallery1 {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr); /* 每行显示 3 张图片 */
+          grid-gap: 10px;
+      }
+      .gallery img {
+          width: 100%;
+          height: auto;
+      }
+      .gallery-caption {
+          text-align: center;
+          margin-top: 5px;
+      }
+  </style>
+
 RetinaFace is a deep learning based cutting-edge facial detector for Python coming with facial landmarks. Its detection performance is amazing even in the crowd as shown in the following illustration.
 
 RetinaFace is the face detection module of [insightface](https://github.com/deepinsight/insightface) project. The original implementation is mainly based on mxnet. Then, its tensorflow based [re-implementation](https://github.com/StanislasBertrand/RetinaFace-tf2) is published by [Stanislas Bertrand](https://github.com/StanislasBertrand). So, this repo is heavily inspired from the study of Stanislas Bertrand. Its source code is simplified and it is transformed to pip compatible but the main structure of the reference model and its pre-trained weights are same.
@@ -60,7 +77,40 @@ RetinaFace is the face detection module of [insightface](https://github.com/deep
     <p class="gallery-caption"><em>Pull up pictures of faces</em></p>
 </body>
 
-
+<body>
+    <div class="gallery1">
+        <!-- 添加 28 张图片 -->
+        <img src="./tests/outputs/cmp/face_0_00.png" alt="图片1">
+        <img src="./tests/outputs/cmp/face_1_00.png" alt="图片2">
+        <img src="./tests/outputs/cmp/face_2_00.png" alt="图片3">
+        <img src="./tests/outputs/cmp/face_3_00.png" alt="图片4">
+        <img src="./tests/outputs/cmp/face_4_00.png" alt="图片5">
+        <img src="./tests/outputs/cmp/face_5_00.png" alt="图片6">
+        <img src="./tests/outputs/cmp/face_6_00.png" alt="图片7">
+        <img src="./tests/outputs/cmp/face_7_00.png" alt="图片8">
+        <img src="./tests/outputs/cmp/face_8_00.png" alt="图片9">
+        <img src="./tests/outputs/cmp/face_9_00.png" alt="图片10">
+        <img src="./tests/outputs/cmp/face_10_00.png" alt="图片11">
+        <img src="./tests/outputs/cmp/face_11_00.png" alt="图片12">
+        <img src="./tests/outputs/cmp/face_12_00.png" alt="图片13">
+        <img src="./tests/outputs/cmp/face_13_00.png" alt="图片14">
+        <img src="./tests/outputs/cmp/face_14_00.png" alt="图片15">
+        <img src="./tests/outputs/cmp/face_15_00.png" alt="图片16">
+        <img src="./tests/outputs/cmp/face_16_00.png" alt="图片17">
+        <img src="./tests/outputs/cmp/face_17_00.png" alt="图片18">
+        <img src="./tests/outputs/cmp/face_18_00.png" alt="图片19">
+        <img src="./tests/outputs/cmp/face_19_00.png" alt="图片20">
+        <img src="./tests/outputs/cmp/face_20_00.png" alt="图片21">
+        <img src="./tests/outputs/cmp/face_21_00.png" alt="图片22">
+        <img src="./tests/outputs/cmp/face_22_00.png" alt="图片23">
+        <img src="./tests/outputs/cmp/face_23_00.png" alt="图片24">
+        <img src="./tests/outputs/cmp/face_24_00.png" alt="图片25">
+        <img src="./tests/outputs/cmp/face_25_00.png" alt="图片26">
+        <img src="./tests/outputs/cmp/face_26_00.png" alt="图片27">
+        <img src="./tests/outputs/cmp/face_28_00.png" alt="图片28">
+    </div>
+    <p class="gallery-caption"><em>Pull up pictures of faces</em></p>
+</body>
 
 
 ## Installation [![PyPI](https://img.shields.io/pypi/v/retina-face.svg)](https://pypi.org/project/retina-face/) [![Conda](https://img.shields.io/conda/vn/conda-forge/retina-face.svg)](https://anaconda.org/conda-forge/retina-face)
@@ -108,37 +158,6 @@ Then, it will return the facial area coordinates and some landmarks (eyes, nose 
   }
 }
 ```
-
-**Alignment** - [`Tutorial`](https://sefiks.com/2020/02/23/face-alignment-for-face-recognition-in-python-within-opencv/), [`Demo`](https://youtu.be/WA9i68g4meI)
-
-A modern face recognition [pipeline](https://sefiks.com/2020/05/01/a-gentle-introduction-to-face-recognition-in-deep-learning/) consists of 4 common stages: detect, [align](https://sefiks.com/2020/02/23/face-alignment-for-face-recognition-in-python-within-opencv/), [normalize](https://sefiks.com/2020/11/20/facial-landmarks-for-face-recognition-with-dlib/), [represent](https://sefiks.com/2020/12/14/deep-face-recognition-with-arcface-in-keras-and-python/) and [verify](https://sefiks.com/2020/05/22/fine-tuning-the-threshold-in-face-recognition/). Experiments show that alignment increases the face recognition accuracy almost 1%. Here, retinaface can find the facial landmarks including eye coordinates. In this way, it can apply alignment to detected faces with its extracting faces function.
-
-```python
-import matplotlib.pyplot as plt
-faces = RetinaFace.extract_faces(img_path = "img.jpg", align = True)
-for face in faces:
-  plt.imshow(face)
-  plt.show()
-```
-
-<p align="center"><img src="https://raw.githubusercontent.com/serengil/retinaface/master/tests/outputs/alignment-procedure.png" width="80%" height="80%"></p>
-
-**Face Recognition** - [`Demo`](https://youtu.be/WnUVYQP4h44)
-
-Notice that face recognition module of insightface project is [ArcFace](https://sefiks.com/2020/12/14/deep-face-recognition-with-arcface-in-keras-and-python/), and face detection module is RetinaFace. ArcFace and RetinaFace pair is wrapped in [deepface](https://github.com/serengil/deepface) library for Python. Consider to use deepface if you need an end-to-end face recognition pipeline.
-
-```python
-#!pip install deepface
-from deepface import DeepFace
-obj = DeepFace.verify("img1.jpg", "img2.jpg"
-          , model_name = 'ArcFace', detector_backend = 'retinaface')
-print(obj["verified"])
-```
-
-<p align="center"><img src="https://raw.githubusercontent.com/serengil/retinaface/master/tests/outputs/retinaface-arcface.png" width="100%" height="100%"></p>
-
-Notice that ArcFace got 99.40% accuracy on [LFW data set](https://sefiks.com/2020/08/27/labeled-faces-in-the-wild-for-face-recognition/) whereas human beings just have 97.53% confidence.
-
 
 
 ## Acknowledgements

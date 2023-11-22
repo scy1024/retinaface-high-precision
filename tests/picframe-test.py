@@ -1,3 +1,11 @@
+'''
+Author: sucy suchunyu1998@gmail.com
+Date: 2023-11-22 10:21:12
+LastEditors: sucy suchunyu1998@gmail.com
+LastEditTime: 2023-11-22 10:21:13
+FilePath: /retinaface-high-precision/tests/picframe-test.py
+Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+'''
 from retinaface import RetinaFace
 import cv2
 import matplotlib.pyplot as plt
@@ -17,6 +25,9 @@ def int_tuple(t):
 output_dir = "outputs/faces/test"
 os.makedirs(output_dir, exist_ok=True)
 
+# 设置统一的人脸图像大小
+target_size = (256, 256)
+
 # 遍历检测到的每一个人脸
 for i, key in enumerate(resp):
     identity = resp[key]
@@ -26,7 +37,7 @@ for i, key in enumerate(resp):
     # 以鼻子为中心，确定截取范围
     nose_center = int_tuple(landmarks["nose"])
     face_height = facial_area[3] - facial_area[1]
-    crop_size = face_height * 2
+    crop_size = int(face_height * 2.5)  # 增大截取范围
 
     # 确定截取的图像范围
     x1 = max(nose_center[0] - crop_size // 2, 0)
@@ -34,9 +45,14 @@ for i, key in enumerate(resp):
     x2 = min(nose_center[0] + crop_size // 2, img.shape[1])
     y2 = min(nose_center[1] + crop_size // 2, img.shape[0])
 
-    # 截取并保存图像
+    # 截取图像
     cropped_face = img[y1:y2, x1:x2]
-    cv2.imwrite(os.path.join(output_dir, f'face_{i}.png'), cropped_face)
+
+    # 调整图像大小
+    resized_face = cv2.resize(cropped_face, target_size)
+
+    # 保存调整大小后的图像
+    cv2.imwrite(os.path.join(output_dir, f'face_{i}.png'), resized_face)
 
 # 显示处理后的图像
 plt.imshow(img[:, :, ::-1])
